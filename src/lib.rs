@@ -37,8 +37,8 @@ use std::fmt;
 use std::marker::PhantomData;
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::Ordering::SeqCst;
-use std::sync::{Arc, Condvar, Mutex};
 use std::time::{Duration, Instant};
+use sgx_tstd::sync::{Arc, SgxCondvar as Condvar, SgxMutex as Mutex};
 
 /// Creates a parker and an associated unparker.
 ///
