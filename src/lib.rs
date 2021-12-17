@@ -38,7 +38,10 @@ use std::marker::PhantomData;
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::Ordering::SeqCst;
 use std::time::{Duration, Instant};
+#[cfg(feature = "phala-sgx")]
 use sgx_tstd::sync::{Arc, SgxCondvar as Condvar, SgxMutex as Mutex};
+#[cfg(not(feature = "phala-sgx"))]
+use std::sync::{Arc, Condvar, Mutex};
 
 /// Creates a parker and an associated unparker.
 ///
